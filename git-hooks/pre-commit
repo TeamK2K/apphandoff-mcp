@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# ralph-machine-config-managed: true — commit-gate shim (HO-13547): this machine's engine, else a pinned cached copy (hook-engine-bootstrap.sh verifies either), else one line and no gate.
-E="${RALPH_HOOK_ENGINE:-$HOME/apps/projects/ralph-machine-config/hook-pack/scripts/commit_gate.py}"
-E="$(bash "$(dirname "$0")/hook-engine-bootstrap.sh" "$E")" || { echo "commit-gate: engine unavailable, commit not gated" >&2; exit 0; }
-exec python3 "$E"
